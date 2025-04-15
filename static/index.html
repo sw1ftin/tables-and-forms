@@ -9,8 +9,82 @@
 <main>
     <h1>Найди себе друга!</h1>
 
-    <!--Форму размещай тут-->
+    <form action="/pets/orders" method="POST">
+        <div>
+            <label for="pet-type">Тип животного:</label>
+            <select id="pet-type" name="petType" required>
+                <option value="cat" selected>Кот</option>
+                <option value="dog">Собака</option>
+                <option value="tiger">Тигр</option>
+            </select>
+        </div>
 
+        <div>
+            <label>Пол:</label>
+            <div>
+                <input type="radio" id="gender-boy" name="gender" value="boy" checked>
+                <label for="gender-boy">Мальчик</label>
+            </div>
+            <div>
+                <input type="radio" id="gender-girl" name="gender" value="girl">
+                <label for="gender-girl">Девочка</label>
+            </div>
+            <div>
+                <input type="radio" id="gender-none" name="gender" value="none">
+                <label for="gender-none">Не указано</label>
+            </div>
+        </div>
+
+        <div>
+            <label for="eye-color">Цвет глаз (HEX):</label>
+            <input type="color" id="eye-color" name="eyeColor" value="#00ff00" required>
+        </div>
+
+        <div>
+            <label for="tail-length">Длина хвоста (от 7 до 120):</label>
+            <input type="range" id="tail-length" name="tailLength" min="7" max="120" value="50" required>
+            <output for="tail-length" id="tail-length-output">50</output>
+        </div>
+
+        <div>
+            <label for="name">Имя хозяина:</label>
+            <input type="text" id="name" name="name" minlength="3" maxlength="50" placeholder="Введите ваше имя" required>
+        </div>
+
+        <div>
+            <label for="date-of-birth">Дата рождения питомца:</label>
+            <input type="date" id="date-of-birth" name="dateOfBirth" required>
+        </div>
+
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+        </div>
+
+        <div>
+            <label for="phone">Телефон:</label>
+            <input type="tel" id="phone" name="phone" placeholder="+7 (123) 456-78-90" required>
+        </div>
+
+        <div>
+            <input type="checkbox" id="rules" name="rules" value="true" required>
+            <label for="rules">Я согласен с правилами приобретения питомца</label>
+        </div>
+
+        <div>
+            <button type="submit">Отправить заказ</button>
+            <button type="reset">Сбросить форму</button>
+        </div>
+    </form>
+
+    <script>
+        const tailLength = document.getElementById('tail-length');
+        const tailLengthOutput = document.getElementById('tail-length-output');
+        
+        tailLength.addEventListener('input', function() {
+            tailLengthOutput.textContent = tailLength.value;
+        });
+    </script>
 </main>
 </body>
 </html>
